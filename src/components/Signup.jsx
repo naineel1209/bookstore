@@ -1,6 +1,7 @@
 // import React from 'react'
 import * as Yup from 'yup'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
+import axios from 'axios';
 
 const Signup = () => {
 
@@ -18,8 +19,16 @@ const Signup = () => {
     <div className='container'>
       <Formik initialValues={
         { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' }
-      } validationSchema={SignupSchema} onSubmit={(values, { resetForm }) => {
+      } validationSchema={SignupSchema} onSubmit={async (values, { resetForm }) => {
         console.log(values);
+
+        try {
+          const { data } = await axios.post("https://book-e-sell-node-api.vercel.app/", values);
+          console.log(data);
+        } catch (e) {
+          console.log(e);
+        }
+
         resetForm();
       }}>
 
