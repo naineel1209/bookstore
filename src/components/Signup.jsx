@@ -23,7 +23,7 @@ const Signup = () => {
         console.log(values);
 
         try {
-          const { data } = await axios.post("https://book-e-sell-node-api.vercel.app/", values);
+          const { data } = await axios.post("https://book-e-sell-node-api.vercel.app/api/", values);
           console.log(data);
         } catch (e) {
           console.log(e);

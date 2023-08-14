@@ -1,11 +1,12 @@
-// import React, { useEffect } from 'react';
 import * as Yup from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
-// import { Button } from 'bootstrap';
+import { useGlobalContext } from '../context/AuthContext';
+const env = import.meta.env;
+// import React, { useEffect } from 'react';
+// import axios from 'axios';
 
 const Login = () => {
   const LoginSchema = Yup.object().shape({
@@ -14,6 +15,7 @@ const Login = () => {
   });
 
   const navigate = useNavigate();
+  const auth = useGlobalContext();
 
   return (
     <div className='container'>
@@ -22,7 +24,7 @@ const Login = () => {
         password: '',
       }} validationSchema={LoginSchema} onSubmit={async (values, { resetForm }) => {
         console.log(values)
-        const res = await fetch('https://book-e-sell-node-api.vercel.app/api/user/login', {
+        const res = await fetch(`${env.VITE_BASE_URL}/user/login`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -30,10 +32,9 @@ const Login = () => {
           body: JSON.stringify(values)
         })
         const data = await res.json();
-        console.log(data);
 
         if (data.key === "SUCCESS") {
-          toast.success('🦄 Wow so easy!', {
+          toast.success('Login Successful', {
             position: "bottom-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -44,13 +45,16 @@ const Login = () => {
             theme: "dark",
           })
 
+          const { result } = data;
+
+          auth.login(result);
 
           setTimeout(() => {
             navigate('/', { replace: true });
-          }, 5000);
+          }, 1200);
 
         } else {
-          toast.error('🦄 Wow so easy!', {
+          toast.error(`${data.error}`, {
             position: "bottom-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -78,7 +82,7 @@ const Login = () => {
                 <Field type="password" name="password" />
                 <ErrorMessage name="password" component="div" className="error-message" />
               </div>
-              <button type="submit" disabled={isSubmitting}>Login</button>
+              <button type="submit" disabled={isSubmitting} className={(isSubmitting) ? 'roller ' : ''}>Login</button>
             </Form>
           }
         }

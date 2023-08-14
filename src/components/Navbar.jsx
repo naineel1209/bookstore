@@ -3,10 +3,15 @@ import { useEffect, useState } from 'react';
 import LoginIcon from '@mui/icons-material/Login';
 import BookIcon from '@mui/icons-material/Book';
 import { NavLink } from 'react-router-dom'
+import { useGlobalContext } from '../context/AuthContext';
 
 const Navbar = () => {
-
   const [scrolled, setScrolled] = useState(false);
+
+  const auth = useGlobalContext();
+  const { values } = auth;
+
+  console.log(auth);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -17,11 +22,10 @@ const Navbar = () => {
 
     return () => {
       window.removeEventListener("scroll", () => {
-        // console.log(scrollY);
         setScrolled(window.scrollY > 50);
       })
     }
-  })
+  }, [values.isLoggedIn]);
 
   return (
     <>
@@ -47,14 +51,29 @@ const Navbar = () => {
 
         </div>
 
-        <div className="login-section">
-          <NavLink to="/login">
-            <Button variant="contained" color="primary" endIcon={<LoginIcon />}>Login</Button>
-          </NavLink>
-          <NavLink to="/signup">
-            <Button variant="outlined" color="primary" endIcon={<LoginIcon />}>SignUp</Button>
-          </NavLink>
-        </div>
+        {
+          (values.isLoggedIn) ? (
+            <div className='navbar-profile'>
+              <div className='name'>
+                Hello, <span>{values.user.name}</span>
+              </div>
+              <div>
+                <NavLink to="/logout">
+                  <Button variant="contained" color="primary" endIcon={<LoginIcon />}>Logout</Button>
+                </NavLink>
+              </div>
+            </div>
+          ) : (
+            <div className="login-section">
+              <NavLink to="/login">
+                <Button variant="contained" color="primary" endIcon={<LoginIcon />}>Login</Button>
+              </NavLink>
+              <NavLink to="/signup">
+                <Button variant="outlined" color="primary" endIcon={<LoginIcon />}>SignUp</Button>
+              </NavLink>
+            </div>
+          )
+        }
       </div>
     </>
   )

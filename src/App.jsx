@@ -1,6 +1,6 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
-import { Home, About, Contact, NotFound, Login, Signup } from './components'
+import { Home, About, Contact, NotFound, Login, Signup, Logout } from './components'
 import SharedLayout from './layout/SharedLayout'
 function App() {
   return (<>
@@ -11,6 +11,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path='/logout' element={<Logout />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

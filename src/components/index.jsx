@@ -5,6 +5,7 @@ import Contact from './Contact';
 import Navbar from './Navbar';
 import Login from './Login';
 import Signup from './Signup';
+import Logout from './Logout';
 import Footer from './Footer';
 
-export { NotFound, Home, About, Contact, Navbar, Login, Signup, Footer };
+export { NotFound, Home, About, Contact, Navbar, Login, Signup, Footer, Logout };
