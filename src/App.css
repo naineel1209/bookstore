@@ -221,10 +221,17 @@ input {
   align-items: center;
   gap: 1rem;
   padding: .5rem;
-  border: 2px solid #ccc;
+  transition: all 200ms ease-in-out;
+  border: 2px solid transparent;
+}
+
+.navbar-profile:hover{
+  border: 2px solid #7a7a7a;
   border-radius: .8rem;
-  background-color: #f0f0f0;
+  background-color: #000000;
+  color: #fff;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+  transition: all 200ms ease-in-out;
 }
 
 .navbar-profile .name{
@@ -236,4 +243,135 @@ input {
 .navbar-profile .name span{
   font-family: 'Dancing Script', cursive;
   font-size: larger;
+}
+
+
+/* Card Home Page Button */
+.home-title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+  transition: all 200ms ease-in-out;
+}
+
+.home-title:hover{
+  transform: scale(1.1);
+}
+
+.home-container{
+  display: grid;
+  /* align-items: center;
+  justify-content: center; */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  margin: 1rem;
+  transition: all 200ms ease-in-out;
+}
+
+.card{
+  border: 2px solid #ccc;
+  border-radius: .8rem;
+  background-color: #f0f0f0;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+}
+
+.card-image{
+  margin: auto;
+  display: flex;
+  height: 10rem;
+  width: max-content;
+  border: 2px solid #ccc;
+  border-radius: .8rem;
+  background-color: #f0f0f0;
+  object-fit: contain;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+
+  transition: all 200ms ease-in-out;
+}
+
+.card-image:hover{
+  transform: scale(1.04);
+  transition: all 200ms ease-in-out;
+}
+
+.container-loading{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 78vh;
+}
+
+.card-title{
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-family: 'Noto Sans', sans-serif;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.card-price{
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-family: 'Noto Sans', sans-serif;
+  text-align: center;
+  color: red;
+}
+
+.card-category{
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: 'Noto Sans', sans-serif;
+  text-align: center;
+  color: #7a7a7a;
+}
+
+.card-description{
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: 'Noto Sans', sans-serif;
+  text-align: center;
+  padding-top: 1rem;
+
+  background-color: white;
+  padding: 1rem;
+  border-radius: .8rem;
+
+  margin-bottom: 1rem;
+}
+
+.card-description span{
+  padding-inline-start: .3rem;
+}
+
+.card-add2cart{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: red;
+  color: #fff;
+
+  margin: auto;
+}
+
+/* Paginate Container */
+.paginate-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+  transition: all 200ms ease-in-out;
+}
+
+.paginate-disabled{
+  background-color: red;
 }

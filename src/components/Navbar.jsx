@@ -2,7 +2,7 @@ import { Button } from '@mui/material'
 import { useEffect, useState } from 'react';
 import LoginIcon from '@mui/icons-material/Login';
 import BookIcon from '@mui/icons-material/Book';
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { useGlobalContext } from '../context/AuthContext';
 
 const Navbar = () => {
@@ -16,7 +16,7 @@ const Navbar = () => {
   useEffect(() => {
     window.addEventListener("scroll", () => {
       // console.log(scrollY);
-      setScrolled(window.scrollY > 100);
+      setScrolled(window.scrollY > 50);
     })
 
 
@@ -37,19 +37,29 @@ const Navbar = () => {
         </div>
         <div className="nav-items">
 
-          <NavLink to="/" className={({ isActive }) => {
-            return (isActive) ? 'active' : '';
-          }} >Home</NavLink>
+          {
+            (!values.isLoggedIn) ? (<>
+              <NavLink to="/" className={({ isActive }) => {
+                return (isActive) ? 'active' : '';
+              }} >Home</NavLink>
+            </>
+            ) : (<>
+              <NavLink to="/" className={
+                ({ isActive }) => {
+                  return (isActive) ? 'active' : '';
+                }}>Home</NavLink>
 
-          <NavLink to="/about" className={({ isActive }) => {
-            return (isActive) ? 'active' : '';
-          }} >About</NavLink>
+              <NavLink to="/about" className={({ isActive }) => {
+                return (isActive) ? 'active' : '';
+              }} >About</NavLink>
 
-          <NavLink to="/contact" className={({ isActive }) => {
-            return (isActive) ? 'active' : '';
-          }} >Contact</NavLink>
+              <NavLink to="/category" className={({ isActive }) => {
+                return (isActive) ? 'active' : '';
+              }} >Category</NavLink>
+            </>)
+          }
 
-        </div>
+        </div >
 
         {
           (values.isLoggedIn) ? (
@@ -74,7 +84,7 @@ const Navbar = () => {
             </div>
           )
         }
-      </div>
+      </div >
     </>
   )
 }
