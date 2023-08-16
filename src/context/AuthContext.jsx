@@ -11,6 +11,7 @@ export const AppProvider = ({ children }) => {
       roleId: null,
       role: null,
       _id: null,
+      id: null,
     },
     isLoggedIn: false,
   });
@@ -24,6 +25,7 @@ export const AppProvider = ({ children }) => {
           roleId: userData.roleId,
           role: userData.role,
           _id: userData._id,
+          id: userData.id,
         },
         isLoggedIn: true,
       }
@@ -38,6 +40,7 @@ export const AppProvider = ({ children }) => {
         roleId: null,
         role: null,
         _id: null,
+        id: null,
       },
       isLoggedIn: false,
     })

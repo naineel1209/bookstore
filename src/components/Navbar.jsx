@@ -58,9 +58,9 @@ const Navbar = () => {
                 return (isActive) ? 'active' : '';
               }} >About</NavLink>
 
-              <NavLink to="/category" className={({ isActive }) => {
+              <NavLink to="/cart" className={({ isActive }) => {
                 return (isActive) ? 'active' : '';
-              }} >Category</NavLink>
+              }} >Cart</NavLink>
             </>)
           }
 

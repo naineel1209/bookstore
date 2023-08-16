@@ -9,5 +9,5 @@ import Logout from './Logout';
 import Footer from './Footer';
 import SearchComponent from './SearchComponent';
 import PostBook from './PostBook'
-
-export { NotFound, Home, About, Category, Navbar, Login, Signup, Footer, Logout, SearchComponent, PostBook };
+import Cart from './Cart'
+export { NotFound, Home, About, Category, Navbar, Login, Signup, Footer, Logout, SearchComponent, PostBook, Cart };
