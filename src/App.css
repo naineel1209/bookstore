@@ -267,6 +267,7 @@ input {
   gap: 1rem;
   padding: 1rem;
   margin: 1rem;
+  margin-bottom: 2rem;
   width: max-content;
   margin:auto;
   transition: all 200ms ease-in-out;
@@ -317,6 +318,7 @@ input {
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
 
   transition: all 200ms ease-in-out;
+  overflow: hidden;
 }
 
 .card-image:hover{
@@ -467,3 +469,5 @@ input {
   transform: scale(1.4);
   transition: all 200ms ease-in-out;
 }
+
+/* Cart Items */

@@ -10,4 +10,6 @@ import Footer from './Footer';
 import SearchComponent from './SearchComponent';
 import PostBook from './PostBook'
 import Cart from './Cart'
-export { NotFound, Home, About, Category, Navbar, Login, Signup, Footer, Logout, SearchComponent, PostBook, Cart };
+import OrderSuccess from './OrderSuccess';
+
+export { NotFound, Home, About, Category, Navbar, Login, Signup, Footer, Logout, SearchComponent, PostBook, Cart, OrderSuccess };

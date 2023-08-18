@@ -1,0 +1,47 @@
+.order-success {
+  text-align: center;
+  padding: 50px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  margin: 50px auto;
+  width: 80%;
+  max-width: 800px;
+}
+
+.order-header {
+  margin-bottom: 30px;
+}
+
+.order-header h2 {
+  color: #333;
+  font-size: 28px;
+}
+
+.order-header p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+.order-details p {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #333;
+}
+
+.home-button {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 12px 24px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.home-button:hover {
+  background-color: #0056b3;
+}
